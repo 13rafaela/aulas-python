@@ -1,17 +1,17 @@
+print("sistema de cadastro de alunos")
 #solicitar os dados
 alunos = []
 contador = 1
 while contador <= 3:
     aluno = input("Digite o nome do aluno:")
+    alunos.append(aluno)
     idade = int(input("Digite sua idade: "))
+    alunos.append(idade)
     nota = float(input("Digite a sua nota: "))
+    alunos.append(nota)
     contador += 1
-    
-#tranformar em dicionário e armazenar
-estudantes = {"nome":"aluno" ,
-              "idade":"idade" ,
-            "nota": "nota"}
-alunos.append(estudantes)
+    estudantes = {"nome":aluno ,
+              "idade":idade ,
+            "nota": nota}
+    alunos.append(estudantes)
 print(f"alunos: {alunos}")
-
-#verificar aprovação
