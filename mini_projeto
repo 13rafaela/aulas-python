@@ -1,21 +1,44 @@
-print("sistema de cadastro de alunos")
-#solicitar os dados
+print("------------- SISTEMA DE CADASTRO DE ALUNOS -------------")
+# solicitar dados
 alunos = []
 contador = 1
-while contador <= 3:
-    aluno = input("Digite o nome do aluno:")
-    idade = int(input("Digite sua idade: "))
-    nota = float(input("Digite a sua nota: "))
-    contador += 1
-    estudantes = {"nome":aluno ,
-              "idade":idade ,
-            "nota": nota}
-    alunos.append(estudantes)
-print(f"alunos: {alunos}")
+while contador <=3:
+  nome = input("Digite seu nome: ")
+  idade = int(input("Digite sua idade: "))
+  media = float(input("Digite sua média: "))
 
-#verificat alunos aprovados e reprovados
-for estudant, note in estudantes.items():
-    if nota >= 7:
-        print(f"{aluno} foi Aprovado")
-    else:
-        print(f"{aluno} foi Reprovado")
+  contador += 1
+  dados = {"nome": nome,
+           "idade": idade,
+           "media": media}
+  alunos.append(dados)
+print(f"alunos cadastrados: {alunos}")
+#verificar alunos aprovados e reprovados
+
+for aluno in alunos:
+  if aluno["media"] >=7:
+    print(f"{aluno['nome']} foi aprovado ")
+  else:
+     print(f"{aluno['nome']} foi reprovado")
+# quantidade de alunos
+qtd = 0
+for a in range(3):
+  qtd += 1
+print(f"A quantidade total de alunos é de {qtd}")
+#media das notas da turma
+qtd_media = 0
+for i in range(len(alunos)):
+  qtd_media += alunos[i]["media"]
+media = qtd_media / len(alunos)
+print(f" A media dos alunos foi: {media:.2f}")
+#melhor e pior aluno
+aluno_maior = [0]
+aluno_menor = [0]
+for aluno in alunos:
+  if aluno["media"] > aluno_maior["media"]:
+    aluno_maior = aluno
+  if aluno["media"] < aluno_menor["media"]:
+    aluno_menor = aluno
+print(f"O melhor aluno foi {aluno_maior['nome']}")
+print(f"O pior aluno foi {aluno_menor['nome']}")
+
