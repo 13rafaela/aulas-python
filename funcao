@@ -1,0 +1,44 @@
+#def comprimentar():
+    #print("ola, bem vinda!")
+
+
+#comprimentar()
+#def somar(a,b):
+    #print(a+b) 
+#resultado = somar(10,5)
+#print(resultado)
+#nome_global = "Ana"
+#ef teste():
+    #nome_local = "Bia"
+    #print(nome_local)
+
+#teste()
+
+#def verificar_idade(nome, idade):
+    #if idade >=18:
+        #return f"{nome} é maior de idade "
+    #else:
+        #return f"{nome} é menor de idade "
+#print(verificar_idade("Nathalya,",17))
+import math
+import random
+num = math.sqrt
+print(num)
+
+# desafio:
+def calcular_media(nota1,nota2,nota3):
+    media = (nota1 + nota2 + nota3) / 3
+    
+    if media >=7:
+        situacao = "aprovado"
+    elif media == 5:
+        situacao = "em recuperacao"
+    else:
+        situacao = "aluno reprovado"
+    print(f"media = {media:.2f}, situação = {situacao}")
+    return media
+
+nota1,nota2,nota3 = 9,6,3
+calcular_media(nota1=9,nota2=7,nota3=7)
+nota1,nota2,nota3 = 7,5,3
+calcular_media(nota1=7,nota2=5,nota3=3)
