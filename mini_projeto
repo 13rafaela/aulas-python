@@ -1,44 +1,51 @@
-print("------------- SISTEMA DE CADASTRO DE ALUNOS -------------")
-# solicitar dados
-alunos = []
-contador = 1
-while contador <=3:
-  nome = input("Digite seu nome: ")
-  idade = int(input("Digite sua idade: "))
-  media = float(input("Digite sua média: "))
+print("----------------------------------------------------------")
+print("---------- INSTITUTO FEDERAL ASAS PARA O FUTURO ----------")
+print("-------------- SISTEMA DE CADASTRO DE ALUNOS -------------")
+print("----------------------------------------------------------")
 
-  contador += 1
-  dados = {"nome": nome,
-           "idade": idade,
-           "media": media}
-  alunos.append(dados)
-print(f"alunos cadastrados: {alunos}")
-#verificar alunos aprovados e reprovados
+#SOLICITAÇÃO DOS DADOS DOS DISCENTES
 
-for aluno in alunos:
-  if aluno["media"] >=7:
-    print(f"{aluno['nome']} foi aprovado ")
-  else:
-     print(f"{aluno['nome']} foi reprovado")
-# quantidade de alunos
-qtd = 0
-for a in range(3):
-  qtd += 1
-print(f"A quantidade total de alunos é de {qtd}")
-#media das notas da turma
-qtd_media = 0
-for i in range(len(alunos)):
-  qtd_media += alunos[i]["media"]
-media = qtd_media / len(alunos)
-print(f" A media dos alunos foi: {media:.2f}")
-#melhor e pior aluno
-aluno_maior = [0]
-aluno_menor = [0]
-for aluno in alunos:
-  if aluno["media"] > aluno_maior["media"]:
-    aluno_maior = aluno
-  if aluno["media"] < aluno_menor["media"]:
-    aluno_menor = aluno
-print(f"O melhor aluno foi {aluno_maior['nome']}")
-print(f"O pior aluno foi {aluno_menor['nome']}")
+discentes = []
+quantidade = int(input("Quantos discentes deseja cadastrar? "))
 
+for i in range(quantidade):
+    print(f"\nCadastro do discente {i + 1}")
+    nome = input("Digite o nome: ").strip()
+    idade = int(input("Digite a idade: "))
+    media = float(input("Digite a média: "))
+
+    dados = {
+        "nome": nome,
+        "idade": idade,
+        "media": media
+    }
+    discentes.append(dados)
+
+
+#VERIFICAÇÃO DOS DISCENTES CADASTRADOS
+
+print("\nDiscentes cadastrados:")
+for discente in discentes:
+    print(f"- {discente['nome']} | idade: {discente['idade']} | média: {discente['media']:.2f}")
+
+#VERIFICAÇÃO DOS DISCENTES APROVADOS E REPROVADOS
+
+print("\nSituação dos discentes:")
+for discente in discentes:
+   if discente["media"] >=7:
+    print(f" - {discente['nome']} foi aprovado! ")
+   else:
+     print(f" - {discente['nome']} foi reprovado!")
+
+#VERIFICAÇÃO DAS MÉDIAS DOS DISCENTES
+
+print(f"\nA quantidade total de discentes é de {len(discentes)}")
+
+soma_medias = sum(discente["media"] for discente in discentes)
+media_turma = soma_medias / len(discentes)
+print(f"A média da turma foi: {media_turma:.2f}")
+
+maior_nota = max(discentes, key=lambda discente: discente["media"])
+menor_nota = min(discentes, key=lambda discente: discente["media"])
+print(f"A maior nota cadastrada foi do(a) discente {maior_nota['nome']} com média: {maior_nota['media']:.2f}")
+print(f"A menor nota cadastrada foi do(a) discente {menor_nota['nome']} com média: {menor_nota['media']:.2f}")
