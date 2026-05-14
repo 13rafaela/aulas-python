@@ -44,5 +44,5 @@ while True:
         def somar():
             break
     if opcao == "2":
-        def subtrair()
+        def subtrair():
             break
